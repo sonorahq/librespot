@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - [core] Made `SpotifyId::to_base62`, `SpotifyId::to_base16`, `FileId::to_base16`, `SpotifyUri::to_id`, `SpotifyUri::to_uri` infallible (breaking)
+- [core] Replaced the unmaintained `hyper-proxy2` with `hyper-http-proxy`, so the proxy connector uses the same rustls 0.23 / hyper-rustls 0.27 as the HTTP client instead of rustls 0.22, which has open advisories
 
 ### Fixed
 

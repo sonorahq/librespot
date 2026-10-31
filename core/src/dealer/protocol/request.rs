@@ -9,6 +9,7 @@ use crate::{
 };
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+use std::collections::HashMap;
 use std::fmt::{Display, Formatter};
 
 #[derive(Clone, Debug, Deserialize)]
@@ -149,6 +150,7 @@ pub struct SetOptionsCommand {
     pub shuffling_context: Option<bool>,
     pub repeating_context: Option<bool>,
     pub repeating_track: Option<bool>,
+    pub modes: Option<HashMap<String, String>>,
     pub options: Option<OptionsOptions>,
     pub logging_params: LoggingParams,
 }

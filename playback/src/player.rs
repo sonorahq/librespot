@@ -1025,8 +1025,10 @@ impl PlayerTrackLoader {
         };
 
         info!(
-            "Loading <{}> with Spotify URI <{}>",
-            audio_item.name, audio_item.uri
+            "Loading <{}> from <{}> with Spotify URI <{}>",
+            audio_item.name,
+            audio_item.unique_fields.artists_display(),
+            audio_item.uri
         );
 
         let chosen = match &offline {
@@ -1217,7 +1219,12 @@ impl PlayerTrackLoader {
 
             let is_explicit = audio_item.is_explicit;
 
-            info!("<{}> ({} ms) loaded", audio_item.name, duration_ms);
+            info!(
+                "<{}> from <{}> ({} ms) loaded",
+                audio_item.name,
+                audio_item.unique_fields.artists_display(),
+                duration_ms
+            );
 
             return Some(PlayerLoadedTrackData {
                 decoder,
